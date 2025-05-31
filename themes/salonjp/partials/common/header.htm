@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-absolute w-100"
+     style="z-index: 1000;">
+    <div class="container">
+        {# Logo/Brand #}
+        <a class="navbar-brand d-flex align-items-center"
+           href="{{ 'home'|page }}">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 5C25 8 30 12 32 18C30 25 25 30 20 35C15 30 10 25 8 18C10 12 15 8 20 5Z"
+                              fill="currentColor"
+                              opacity="0.7" />
+                    </svg>
+                </div>
+                <div class="ms-3">
+                    <div class="logo-text">Jest Pięknie</div>
+                    <div class="logo-subtitle">Beauty Salon & Spa</div>
+                </div>
+            </div>
+        </a>
+
+        {# Mobile Toggle Button #}
+        <button class="navbar-toggler border-0"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {# Navigation Menu #}
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item text-uppercase">
+                    <a class="nav-link {% if this.page.id == 'home' %}active{% endif %}"
+                       href="#treatment">
+                        Zabiegi
+                    </a>
+                </li>
+                <li class="nav-item text-uppercase ">
+                    <a class="nav-link {% if this.page.id == 'about' %}active{% endif %}"
+                       href="{{ 'about'|page }}">
+                        Cennik
+                    </a>
+                </li>
+                {# <li class="nav-item text-uppercase">
+                    <a class="nav-link {% if this.page.id == 'services' %}active{% endif %}"
+                       href="{{ 'services'|page }}">
+                        Blog
+                    </a>
+                </li>
+                <li class="nav-item text-uppercase">
+                    <a class="nav-link {% if this.page.id == 'gallery' %}active{% endif %}"
+                       href="{{ 'gallery'|page }}">
+                        Promocje
+                    </a>
+                </li> #}
+                <li class="nav-item text-uppercase">
+                    <a class="nav-link {% if this.page.id == 'blog' %}active{% endif %}"
+                       href="#o-nas">
+                        O nas
+                    </a>
+                </li>
+                <li class="nav-item text-uppercase">
+                    <a class="nav-link {% if this.page.id == 'contact' %}active{% endif %}"
+                       href="#footer">
+                        Kontakt
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
