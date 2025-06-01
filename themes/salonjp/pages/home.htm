@@ -8,41 +8,45 @@ description = "Salon Jest Pięknie - Strona Główna"
 {% partial 'treatments' %}
 {% partial 'people' %}
 
-{% scripts %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Slider dots functionality
-        const sliderDots = document.querySelectorAll('.slider-dot');
-        sliderDots.forEach((dot, index) => {
-            dot.addEventListener('click', function () {
-                sliderDots.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    });
+// Sticky Navbar Script
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const logo = document.querySelector('.logo-container img');
+    
+    // Ścieżki do logo
+    const logoDefault = logo.getAttribute('src'); // Obecne logo
+    const logoWhite = logoDefault.replace('logo_header.svg', 'logo_header_white.svg');
+    
+    // Funkcja obsługująca scroll
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+            // Gdy scroll > 100px, dodaj klasę scrolled i zmień position na fixed
+            navbar.classList.add('scrolled');
+            navbar.classList.remove('position-absolute');
+            navbar.classList.add('position-fixed');
+            navbar.style.top = '0';
+            
+            // Zmień logo na białe
+            logo.setAttribute('src', logoWhite);
+        } else {
+            // Gdy scroll <= 100px, usuń klasę scrolled i przywróć position-absolute
+            navbar.classList.remove('scrolled');
+            navbar.classList.remove('position-fixed');
+            navbar.classList.add('position-absolute');
+            navbar.style.top = '';
+            
+            // Przywróć oryginalne logo
+            logo.setAttribute('src', logoDefault);
+        }
+    }
+    
+    // Nasłuchuj eventów scroll
+    window.addEventListener('scroll', handleScroll);
+    
+    // Wywołaj funkcję na początku, żeby ustawić właściwy stan
+    handleScroll();
+});
 </script>
