@@ -4,15 +4,9 @@
             <div class="row">
                 <!-- Brand Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="brand-logo">
-                        <div class="brand-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <div class="brand-text">
-                            <h3>Glovera</h3>
-                            <p>Beauty, Salon & Spa</p>
-                        </div>
-                    </div>
+                    {# <div class="brand-logo">
+                        <img src="{{ 'assets/img/logo_header_white.svg'|theme }}" alt="jest-pieknie-logo">
+                    </div> #}
 
                     <div class="contact-info">
                         <div class="contact-item">
@@ -20,7 +14,7 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-text">
-                                <h6>CALL US</h6>
+                                <h6>Zadzwoń</h6>
                                 <p>+(528) 456-7592</p>
                             </div>
                         </div>
@@ -30,7 +24,7 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-text">
-                                <h6>OUR LOCATION</h6>
+                                <h6>Adres</h6>
                                 <p>132, Tic St, Kingston, New York 12401 USA.</p>
                             </div>
                         </div>
@@ -39,7 +33,7 @@
 
                 <!-- Quicklink Column -->
                 <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="footer-heading">Quicklink</h4>
+                    <h4 class="footer-heading">Na skróty</h4>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Our Team</a></li>
@@ -51,7 +45,7 @@
 
                 <!-- Our Services Column -->
                 <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="footer-heading">Our Services</h4>
+                    <h4 class="footer-heading">Nasze usługi</h4>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Warm Stone Massage to Melt</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Essential Oils For Relaxation</a></li>
@@ -63,15 +57,15 @@
 
                 <!-- Get Updates Column -->
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h4 class="footer-heading">Get Updates</h4>
-                    <p style="color: #ccc; margin-bottom: 20px;">Unlock a new chapter of your life as you immerse
+                    <h4 class="footer-heading">Bądź na bieżąco</h4>
+                    <p>Unlock a new chapter of your life as you immerse
                         yourself in our transformative with our Glovera spa.</p>
 
                     <div class="newsletter-section">
                         <div class="input-group">
                             <input type="email"
                                    class="form-control newsletter-input"
-                                   placeholder="Email Address">
+                                   placeholder="Adres email">
                             <button class="btn newsletter-btn"
                                     type="button">
                                 <i class="fas fa-paper-plane"></i>
@@ -97,8 +91,9 @@
     <!-- Footer Bottom -->
     <div class="footer-bottom">
         <div class="container">
-            <p>&copy; Copyright {{ now|date('Y') }}. All rights reserved <strong>Salon 'Jest Pięknie'</strong>. Projekt <a
-                   href="#">StudioDEVS</a></p>
+            <p>&copy; Copyright {{ now|date('Y') }}. <strong>Salon Jest Pięknie</strong>. 
+            Projekt <a href="https://studiodevs.pl" target="_blank">StudioDEVS</a>
+            </p>
         </div>
     </div>
 </footer>{# JavaScript #}

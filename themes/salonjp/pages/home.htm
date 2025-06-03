@@ -8,45 +8,65 @@ description = "Salon Jest Pięknie - Strona Główna"
 {% partial 'treatments' %}
 {% partial 'people' %}
 
+<div class="container"
+     data-aos="fade-up"
+     data-aos-delay="100">
+    <div class="mb-4"
+         data-aos="fade-up"
+         data-aos-delay="200"></div>
+</div>
+<div id="map"></div>
+
 <script>
-// Sticky Navbar Script
-document.addEventListener('DOMContentLoaded', function() {
-    const navbar = document.querySelector('.navbar');
-    const logo = document.querySelector('.logo-container img');
-    
-    // Ścieżki do logo
-    const logoDefault = logo.getAttribute('src'); // Obecne logo
-    const logoWhite = logoDefault.replace('logo_header.svg', 'logo_header_white.svg');
-    
-    // Funkcja obsługująca scroll
-    function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            // Gdy scroll > 100px, dodaj klasę scrolled i zmień position na fixed
-            navbar.classList.add('scrolled');
-            navbar.classList.remove('position-absolute');
-            navbar.classList.add('position-fixed');
-            navbar.style.top = '0';
-            
-            // Zmień logo na białe
-            logo.setAttribute('src', logoWhite);
-        } else {
-            // Gdy scroll <= 100px, usuń klasę scrolled i przywróć position-absolute
-            navbar.classList.remove('scrolled');
-            navbar.classList.remove('position-fixed');
-            navbar.classList.add('position-absolute');
-            navbar.style.top = '';
-            
-            // Przywróć oryginalne logo
-            logo.setAttribute('src', logoDefault);
+    // Sticky Navbar Script
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbar = document.querySelector('.navbar');
+        const logo = document.querySelector('.logo-container img');
+
+        // Ścieżki do logo
+        const logoDefault = logo.getAttribute('src'); // Obecne logo
+        const logoWhite = logoDefault.replace('logo_header.svg', 'logo_header_white.svg');
+
+        // Funkcja obsługująca scroll
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 100) {
+                // Gdy scroll > 100px, dodaj klasę scrolled i zmień position na fixed
+                navbar.classList.add('scrolled');
+                navbar.classList.remove('position-absolute');
+                navbar.classList.add('position-fixed');
+                navbar.style.top = '0';
+
+                // Zmień logo na białe
+                logo.setAttribute('src', logoWhite);
+            } else {
+                // Gdy scroll <= 100px, usuń klasę scrolled i przywróć position-absolute
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('position-fixed');
+                navbar.classList.add('position-absolute');
+                navbar.style.top = '';
+
+                // Przywróć oryginalne logo
+                logo.setAttribute('src', logoDefault);
+            }
         }
-    }
-    
-    // Nasłuchuj eventów scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Wywołaj funkcję na początku, żeby ustawić właściwy stan
-    handleScroll();
-});
+
+        // Nasłuchuj eventów scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Wywołaj funkcję na początku, żeby ustawić właściwy stan
+        handleScroll();
+    });
+</script>
+
+<script>
+    var map = L.map('map', { scrollWheelZoom: false }).setView([50.207701, 18.970520], 16);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([50.207701, 18.970520]).addTo(map)
+        .openPopup();
 </script>
